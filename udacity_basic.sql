@@ -5,13 +5,25 @@
 |  Link: https://www.udacity.com/course/sql-for-data-analysis--ud198 |
 \* ================================================================ */
 
+/* ================================================================ *\
+|                         TABLE OF CONTENTS                          |
+|====================================================================|
+| 1. BASIC QUERIES                                                   |
+|    1.1 SELECT, FROM & LIMIT                                        |
+|    1.2 ORDER BY                                                    |
+|    1.3 WHERE                                                       |
+|    1.4 WHERE (NON NUMERIC)                                         |
+|    1.5 DERIVED COLUMNS                                             |
+|    1.6 LIKE                                                        |
+|====================================================================|
+\* ================================================================ */
 
 /* ================================================================ *\
 |                            BASIC QUERIES                           |
 \* ================================================================ */
 
 -- ==================================================================
--- SELECT, FROM & LIMIT
+-- 1.1 SELECT, FROM & LIMIT
 -- ==================================================================
 
 -- Selecting all and limiting the results
@@ -27,7 +39,7 @@ SELECT occurred_at,
  LIMIT 15;
 
 -- ==================================================================
--- ORDER BY
+-- 1.2 ORDER BY
 -- ==================================================================
 
 -- The 10 earliest orders in the orders table
@@ -69,7 +81,7 @@ FROM orders
 ORDER BY total_amt_usd DESC, account_id;
 
 -- ==================================================================
--- WHERE
+-- 1.3 WHERE
 -- ==================================================================
 
 -- Pull the first 5 rows with gloss_amt_usd >= 1000
@@ -85,7 +97,7 @@ SELECT *
  LIMIT 10;
 
 -- ==================================================================
--- WHERE with non-numeric data
+-- 1.4 WHERE (NON-NUMERIC)
 -- ==================================================================
 
 -- Filter the accounts table for Exxon Mobil
@@ -96,5 +108,35 @@ SELECT name,
  WHERE name = 'Exxon Mobil';
 
 -- ==================================================================
--- Derived columns
+-- 1.5 DERIVED COLUMNS
 -- ==================================================================
+
+-- Find the unit price for standard paper for each order.
+SELECT id, account_id, standard_amt_usd/standard_qty AS standard_unit_price
+  FROM orders
+ LIMIT 10;
+
+-- Find the percentage of revenue that comes from poster paper for each order. 
+SELECT id, account_id, poster_amt_usd / (standard_amt_usd + gloss_amt_usd + poster_amt_usd) AS poster_perc_revenue
+  FROM orders
+ LIMIT 10;
+
+-- ==================================================================
+-- 1.6 LIKE
+-- ==================================================================
+
+-- Find all the companies whose names start with 'C'
+SELECT *
+  FROM accounts
+ WHERE name LIKE 'C%';
+
+-- Find all companies whose names contain the string 'one'
+SELECT *
+  FROM accounts
+ WHERE name LIKE '%one%';
+
+-- Find all companies whose names end with 's'
+SELECT *
+  FROM accounts
+ WHERE name LIKE '%s';
+
