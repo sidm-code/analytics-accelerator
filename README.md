@@ -1,6 +1,6 @@
 # The Analytics Accelerator
 
-[The Analytics Accelerator](https://theanalyticsaccelerator.com/) by [Christine Jiang](https://www.linkedin.com/in/christine-jiang/) is a 3 month program offering an immersive data analytics experience through hands-on projects and personalized mentorship.
+[![The Analytics Accelerator](images/the_analytics_accelerator_banner.png)](https://theanalyticsaccelerator.com/) [The Analytics Accelerator](https://theanalyticsaccelerator.com/) by [Christine Jiang](https://www.linkedin.com/in/christine-jiang/)
 
 
 ## Curriculum
