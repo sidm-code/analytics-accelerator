@@ -1,19 +1,18 @@
 /* ================================================================ *\
-   Author: Sid
-   Create date: 18 May 2024
-   Description: Recapping basic SQL
-   Course: https://www.udacity.com/course/sql-for-data-analysis--ud198
+|  Author: Sid                                                       |
+|  Create date: 18 May 2024                                          |
+|  Description: Recapping basic SQL                                  |
+|  Link: https://www.udacity.com/course/sql-for-data-analysis--ud198 |
 \* ================================================================ */
-
 
 
 /* ================================================================ *\
-                            BASIC QUERIES
+|                            BASIC QUERIES                           |
 \* ================================================================ */
 
-----------------------------------------------------------------------
+-- ==================================================================
 -- SELECT, FROM & LIMIT
-----------------------------------------------------------------------
+-- ==================================================================
 
 -- Selecting all and limiting the results
 SELECT *
@@ -27,9 +26,9 @@ SELECT occurred_at,
   FROM web_events
  LIMIT 15;
 
-----------------------------------------------------------------------
+-- ==================================================================
 -- ORDER BY
-----------------------------------------------------------------------
+-- ==================================================================
 
 -- The 10 earliest orders in the orders table
 SELECT id,
@@ -55,34 +54,47 @@ SELECT id,
  ORDER BY total_amt_usd
  LIMIT 20;
 
--- Display the order ID, account ID, and total dollar amount for all orders, sorted first by account ID (ascending), then by total dollar amount (descending)
+-- Sorting by account ID (ascending) and total dollar amount (descending)
 SELECT id,
 account_id,
 total_amt_usd
 FROM orders
 ORDER BY account_id, total_amt_usd DESC;
 
--- Now write a query that again displays order ID, account ID, and total dollar amount for each order, but this time sorted first by total dollar amount (in descending order), 
--- and then by account ID (in ascending order)
+-- Sorting by total dollar amount (descending) and account ID (ascending)
 SELECT id,
 account_id,
 total_amt_usd
 FROM orders
 ORDER BY total_amt_usd DESC, account_id;
 
-----------------------------------------------------------------------
+-- ==================================================================
 -- WHERE
-----------------------------------------------------------------------
+-- ==================================================================
 
--- Pull the first 5 rows and all columns from the orders table that have a dollar amount of gloss_amt_usd greater than or equal to 1000.
+-- Pull the first 5 rows with gloss_amt_usd >= 1000
 SELECT *
   FROM orders
  WHERE gloss_amt_usd >= 1000
  LIMIT 5;
 
--- Pull the first 10 rows and all columns from the orders table that have a total_amt_usd less than 500.
+-- Pull the first 10 rows with total_amt_usd < 500
 SELECT *
   FROM orders
  WHERE total_amt_usd < 500
  LIMIT 10;
 
+-- ==================================================================
+-- WHERE with non-numeric data
+-- ==================================================================
+
+-- Filter the accounts table for Exxon Mobil
+SELECT name,
+       website,
+       primary_poc
+  FROM accounts
+ WHERE name = 'Exxon Mobil';
+
+-- ==================================================================
+-- Derived columns
+-- ==================================================================
