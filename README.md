@@ -5,7 +5,7 @@
 
 ## Curriculum
 ### Prework
-Three weeks before the beginning of the program, we spent some time learning and recapping some Excel, SQL, and Tableau essentials.
+In the three weeks leading up to the program, we spent some time learning and recapping essential skills in Excel, SQL, and Tableau.
 
 ### Module 1: Roadmap | Standout Resumes And Cover Letters
 ### Module 2: Strategic Job Hunt | Interview Ins And Outs
